@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Свара — карточная игра онлайн</title>
+    <link rel="stylesheet" href="svara.css">
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <div class="title">🂡 Свара онлайн <span class="badge">3 карты · 36 карт в колоде</span></div>
+            <div class="actions">
+                <a href="index.html">← На главную</a>
+                <button id="deal" class="primary">Новый кон</button>
+            </div>
+        </header>
+
+        <div class="layout">
+            <section class="table">
+                <div class="pot" id="pot">0 монет в банке</div>
+                <div class="table-grid">
+                    <div class="seat bot1" data-id="bot1">
+                        <div class="player-head">
+                            <div>
+                                <div class="name">Андрей</div>
+                                <div class="bank">120 монет</div>
+                            </div>
+                            <div class="status">В игре</div>
+                        </div>
+                        <div class="cards"></div>
+                        <div class="note"></div>
+                    </div>
+                    <div class="seat bot2" data-id="bot2">
+                        <div class="player-head">
+                            <div>
+                                <div class="name">Марина</div>
+                                <div class="bank">120 монет</div>
+                            </div>
+                            <div class="status">В игре</div>
+                        </div>
+                        <div class="cards"></div>
+                        <div class="note"></div>
+                    </div>
+                    <div class="seat player" data-id="you">
+                        <div class="player-head">
+                            <div>
+                                <div class="name">Вы</div>
+                                <div class="bank">120 монет</div>
+                            </div>
+                            <div class="status">В игре</div>
+                        </div>
+                        <div class="cards"></div>
+                        <div class="note"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="controls">
+                <div class="message" id="message">Нажмите «Новый кон», чтобы начать партию</div>
+                <div class="control-row">
+                    <label for="bet-size">Ставка</label>
+                    <input type="range" id="bet-size" min="1" max="20" value="5">
+                    <div class="slider-value" id="bet-value">5 монет</div>
+                </div>
+                <div class="flex">
+                    <button id="bet" class="action primary">Сделать ставку</button>
+                    <button id="showdown" class="action">Вскрыть</button>
+                </div>
+                <div class="flex">
+                    <button id="pass" class="action">Пас</button>
+                    <div class="badge-list">
+                        <span>Боты: Андрюха и Марина</span>
+                        <span>Анте 2 монеты</span>
+                        <span>Победитель забирает банк</span>
+                    </div>
+                </div>
+                <div class="rules">
+                    <strong>Как играть:</strong>
+                    <ul>
+                        <li>Колодой из 36 карт сдаём по 3 карты на игрока.</li>
+                        <li>Все кладут в банк по 2 монеты — это анте.</li>
+                        <li>Ставьте фишки, боты отвечают коллом, рейзом или пасом.</li>
+                        <li>В любой момент жмите «Вскрыть», чтобы выяснить победителя по комбинациям (стрит-флэш → сет → стрит → флэш → пара → старшая карта).</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <section class="log">
+            <h3>Хроника партии</h3>
+            <ul id="log"></ul>
+        </section>
+    </div>
+
+    <script src="svara.js"></script>
+</body>
+</html>
